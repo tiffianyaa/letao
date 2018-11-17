@@ -55,12 +55,13 @@
       <!-- 表格 -->
       <table class="table table-bordered table-hover">
         <thead>
+          <!-- 在表格的头部调整单元格的宽度 -->
           <tr>
-            <th width=90 >序号</th>
-            <th>用户名</th>
-            <th>手机号</th>
-            <th>状态</th>
-            <th>操作</th>
+            <th width="10%">序号</th>
+            <th width="20%">用户名</th>
+            <th width="30%">手机号</th>
+            <th width="20%">状态</th>
+            <th width="20%">操作</th>
           </tr>
         </thead>
         <tbody>
@@ -72,34 +73,6 @@
             <td>
               <button class="btn btn-danger">禁用</button>
             </td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
           </tr>
         </tbody>
       </table>
@@ -132,13 +105,36 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+
+<!-- 准备模板 -->
+<script type="text/html" id="tmp">
+  {{ each rows v i }}
+  <tr>
+    <td>{{ i + 1 }}</td>
+    <td>{{ v.username }}</td>
+    <td>{{ v.mobile }}</td>
+    <td>{{ v. isDelete === 1 ? "正常" : "禁用" }}</td>
+    <td>
+      {{ if v.isDelete === 1 }}
+      <button class="btn btn-danger">禁用</button>
+      {{ else }}
+      <button class="btn btn-success">启用</button>
+      {{ /if }}
+    </td>
+  </tr>
+  {{ /each }}
+</script>
+
+
 <script src="./lib/jquery/jquery.js"></script>
 <script src="./lib/bootstrap/js/bootstrap.js"></script>
 <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
 <script src="./lib/nprogress/nprogress.js"></script>
+<script src="./lib/artTemplate/template-web.js"></script>
 <script src="./js/common.js"></script>
 <!-- 判断用户是否已登录 -->
 <script src="./js/isLogin.js"></script>
-<script src="./js/index.js"></script>
+<script src="./js/user.js"></script>
 </body>
 </html>
