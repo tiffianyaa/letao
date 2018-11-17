@@ -2,11 +2,63 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>乐淘电商主页</title>
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>index</title>
+  <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.css">
+  <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
+  <link rel="stylesheet" href="./css/common.css">
 </head>
 <body>
-  后台管理系统首页
+<!-- 左侧的侧边栏 -->
+<div class="lt_aside">
+  <!-- 标题 -->
+  <div class="brand">
+    <a href="#">黑马29期牛逼</a>
+  </div>
+  <!-- 用户头像 -->
+  <div class="user">
+    <img src="./images/02.jpg" alt="">
+    <p>超级管理员</p>
+  </div>
+  <!-- 导航 -->
+  <div class="nav">
+    <ul>
+      <li><a href="user.html"><i class="glyphicon glyphicon-user"></i><span>用户管理</span></a></li>
+      <li>
+        <a href="javascript:;"><i class="glyphicon glyphicon-list"></i><span>分类管理</span></a>
+        <div class="child">
+          <a href="first.html" class="current">一级分类</a>
+          <a href="second.html">二级分类</a>
+        </div>
+      </li>
+      <li><a href="product.html"><i class="glyphicon glyphicon-tags"></i><span>商品管理</span></a></li>
+    </ul>
+  </div>
+</div>
+<!-- 右侧主体部分 -->
+<div class="lt_main">
+  <!-- 右侧头部 -->
+  <div class="lt_topbar">
+    <a href="javascript:;" class="icon_left pull-left"><i class="glyphicon glyphicon-align-justify"></i></a>
+    <a href="javascript:;" class="icon_left pull-right"><i class="glyphicon glyphicon-log-out"></i></a>
+  </div>
+  <!-- 右侧内容部分,响应式版心里 -->
+  <div class="container-fluid">
+    <!-- 链接导航,bootstrap组件 -->
+    <ol class="breadcrumb mt_20">
+      <li><a href="index.html">管理系统</a></li>
+      <li class="active">首页</li>
+    </ol>
+  </div>
+</div>
+<!-- 退出模态框 -->
+<script src="./lib/jquery/jquery.js"></script>
+<script src="./lib/bootstrap/js/bootstrap.js"></script>
+<script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
+<script src="./lib/nprogress/nprogress.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/index.js"></script>
 </body>
 </html>
