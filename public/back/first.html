@@ -28,7 +28,7 @@
       <li><a href="user.html"><i class="glyphicon glyphicon-user"></i><span>用户管理</span></a></li>
       <li>
         <a href="javascript:;" class="category"><i class="glyphicon glyphicon-list"></i><span>分类管理</span></a>
-        <div class="child">
+        <div class="child" style="display: block;">
           <a href="first.html" class="current">一级分类</a>
           <a href="second.html">二级分类</a>
         </div>
@@ -49,15 +49,9 @@
     <!-- 链接导航,bootstrap组件 -->
     <ol class="breadcrumb mt_20">
       <li><a href="index.html">管理系统</a></li>
-      <li class="active">首页</li>
+      <li class="active">分类管理</li>
+      <li class="active">一级分类</li>
     </ol>
-    <!-- echarts图表容器 -->
-    <div class="lt_content">
-      <!-- 左侧的柱状图容器 -->
-      <div class="echarts_left pull-left"></div>
-      <!-- 右侧的饼状图容器 -->
-      <div class="echarts_right pull-right"></div>
-    </div>
   </div>
 </div>
 <!-- 退出模态框 -->
@@ -90,7 +84,6 @@
 <script src="./lib/bootstrap/js/bootstrap.js"></script>
 <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
 <script src="./lib/nprogress/nprogress.js"></script>
-<script src="./lib/echarts/echarts.min.js"></script>
 <script src="./js/common.js"></script>
 <!-- 判断用户是否已登录 -->
 <script src="./js/isLogin.js"></script>
