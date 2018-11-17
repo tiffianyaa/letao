@@ -19,6 +19,9 @@ ul {
 .mt_20 {
   margin-top: 20px;
 }
+.red {
+  color: #A94442;
+}
 .body_bg {
   background-color: #222D32;
 }
@@ -32,8 +35,11 @@ ul {
   width: 180px;
   height: 100%;
   position: fixed;
+  top: 0;
+  left: 0;
   z-index: 99;
   background-color: #222D32;
+  transition: all 1s;
 }
 .lt_aside .brand {
   width: 180px;
@@ -88,6 +94,16 @@ ul {
 .lt_aside .nav li .child a {
   padding-left: 60px;
 }
+/* 左侧菜单列表隐藏 */
+.lt_aside.hidemenu {
+  left: -180px;
+}
+.lt_main.hidemenu {
+  padding-left: 0;
+}
+.lt_main .lt_topbar.hidemenu {
+  padding-left: 0;
+}
 
 .lt_main {
   width: 100%;
@@ -98,6 +114,7 @@ ul {
   position: fixed;
   top: 0;
   left: 0;
+  transition: all 1s;
 }
 .lt_main .lt_topbar {
   position: fixed;
@@ -105,6 +122,7 @@ ul {
   left: 0;
   padding-left: 180px;
   width: 100%;
+  transition: all 1s;
 }
 .lt_main .lt_topbar a {
   width: 50px;
