@@ -52,38 +52,44 @@
       <li class="active">分类管理</li>
       <li class="active">一级分类</li>
     </ol>
-    <button class="btn btn-default">添加分类</button>
-    <!-- 表格 -->
-    <table class="table table-bordered table-hover mt_20">
-      <thead>
-        <tr>
-          <th width="20%">序号</th>
-          <th width="80%">一级分类名</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>2</td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>2</td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>2</td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>2</td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>2</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="lt_content">
+      <button class="btn btn-default">添加分类</button>
+      <!-- 表格 -->
+      <table class="table table-bordered table-hover mt_20">
+        <thead>
+          <tr>
+            <th width="20%">序号</th>
+            <th width="80%">一级分类名</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>2</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- 分页容器 -->
+      <div class="text-right">
+        <ul id="pagintor"></ul>
+      </div>
+    </div>
   </div>
 </div>
 <!-- 退出模态框 -->
@@ -127,6 +133,7 @@
 <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
 <script src="./lib/nprogress/nprogress.js"></script>
 <script src="./lib/artTemplate/template-web.js"></script>
+<script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
 <script src="./js/common.js"></script>
 <!-- 判断用户是否已登录 -->
 <script src="./js/isLogin.js"></script>
