@@ -48,16 +48,43 @@
   <div class="container-fluid">
     <!-- 链接导航,bootstrap组件 -->
     <ol class="breadcrumb mt_20">
-        <li><a href="index.html">管理系统</a></li>
-        <li class="active">分类管理</li>
-        <li class="active">二级分类</li>
+      <li><a href="index.html">管理系统</a></li>
+      <li class="active">分类管理</li>
+      <li class="active">一级分类</li>
     </ol>
+    <div class="lt_content">
+      <button class="btn btn-default" id="addBtn">添加分类</button>
+      <!-- 表格 -->
+      <table class="table table-bordered table-hover mt_20">
+        <thead>
+          <tr>
+            <th width="10%">序号</th>
+            <th width="30%">一级分类名称</th>
+            <th width="30%">二级分类名称</th>
+            <th width="30%">二级分类LOGO</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>
+              <img src="../mobile/images/brand5.png" alt="">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- 分页容器 -->
+      <div class="text-right">
+        <ul id="pagintor"></ul>
+      </div>
+    </div>
   </div>
 </div>
 <!-- 退出模态框 -->
 <!-- bootstrap里面的js插件 -->
 <!-- 复制模态框静态实例,将动态实例关联部分,放到上面的a里面去,此处用下面的js方法实现 -->
-
 <!-- 外部的蒙层 -->
 <div class="modal fade" id="myModal" tabindex="-1">
   <!-- 内部的模态框 -->
@@ -80,13 +107,93 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+<!-- 添加分类的模态框 -->
+<div class="modal fade" id="addModal" tabindex="-1">
+  <!-- 内部的模态框 -->
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">      
+      <form id="form">
+        <!-- 头部 -->
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+          <h4 class="modal-title">添加分类</h4>
+        </div>
+        <!-- 中间 -->
+        <div class="modal-body">
+          <div class="form-group">
+            <!-- 下拉菜单 -->
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                <span id="dropdownText">请选择一级分类</span><span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <!-- 挖个坑 -->
+              </ul>
+            </div>
+            <!-- 两个隐藏域,分别用来存储一级分类id和火热品牌 -->
+            <input type="hidden" name="categoryId">
+            <input type="hidden" name="hot" value="1">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="brandName" id="brandName" placeholder="请输入二级分类">
+          </div>
+          <div class="form-group">
+            <!-- 文件上传 -->
+            <!-- 通过label的for属性和input的id将他们关联起来 -->
+            <label for="fileupload" class="btn btn-default">上传图片</label>
+            <!-- data-url 指定图片上传时的接口地址        将来给插件去获取的, 去发送ajax的 -->
+            <input type="file" name="pic1" id="fileupload" data-url="/category/addSecondCategoryPic" style="display: none;">
+          </div>
+          <div class="form-group">
+            <div id="imgBox">
+              <img src="./images/none.png" style="height:100px;" alt="">
+            </div>
+            <input type="hidden" name="brandLogo">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button type="submit" class="btn btn-primary" id="cateaddBtn">添加</button>
+          </div>
+        </div>
+      </form>
+      <!-- 需要放到form表单中,才能够提交 -->
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- 模版引擎 -->
+<script type="text/html" id="tmp">
+  {{ each rows v i }}
+  <tr>
+    <td>{{ i + 1 + (page -1)*size }}</td>
+    <td>{{ v.categoryName }}</td>
+    <td>{{ v.brandName }}</td>
+    <td>
+      <img src="..{{ v.brandLogo }}" alt="" height="50px">
+    </td>
+  </tr>
+  {{ /each }}
+</script>
+
+<!-- 一级分类模版 -->
+<script type="text/html" id="dropdownTmp">
+  {{ each rows v i }}
+    <li><a href="#" data-id="{{ v.id }}">{{ v.categoryName }}</a></li>
+  {{ /each }}
+</script>
 <script src="./lib/jquery/jquery.js"></script>
+<!-- 文件上传插件 -->
+<script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+<script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
 <script src="./lib/bootstrap/js/bootstrap.js"></script>
 <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
 <script src="./lib/nprogress/nprogress.js"></script>
+<script src="./lib/artTemplate/template-web.js"></script>
+<script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
 <script src="./js/common.js"></script>
 <!-- 判断用户是否已登录 -->
 <script src="./js/isLogin.js"></script>
-<script src="./js/index.js"></script>
+<script src="./js/second.js"></script>
 </body>
 </html>
