@@ -52,6 +52,38 @@
       <li class="active">分类管理</li>
       <li class="active">一级分类</li>
     </ol>
+    <button class="btn btn-default">添加分类</button>
+    <!-- 表格 -->
+    <table class="table table-bordered table-hover mt_20">
+      <thead>
+        <tr>
+          <th width="20%">序号</th>
+          <th width="80%">一级分类名</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>2</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 <!-- 退出模态框 -->
@@ -80,13 +112,24 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+<!-- 模版引擎 -->
+<script type="text/html" id="tmp">
+  {{ each rows v i }}
+  <tr>
+    <td>{{ i + 1 + (page -1)*size }}</td>
+    <td>{{ v.categoryName }}</td>
+  </tr>
+  {{ /each }}
+</script>
 <script src="./lib/jquery/jquery.js"></script>
 <script src="./lib/bootstrap/js/bootstrap.js"></script>
 <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
 <script src="./lib/nprogress/nprogress.js"></script>
+<script src="./lib/artTemplate/template-web.js"></script>
 <script src="./js/common.js"></script>
 <!-- 判断用户是否已登录 -->
 <script src="./js/isLogin.js"></script>
-<script src="./js/index.js"></script>
+<script src="./js/first.js"></script>
 </body>
 </html>
