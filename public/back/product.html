@@ -106,7 +106,7 @@
 <!-- 添加分类的模态框 -->
 <div class="modal fade" id="addModal" tabindex="-1">
   <!-- 内部的模态框 -->
-  <div class="modal-dialog modal-sm">
+  <div class="modal-dialog">
     <div class="modal-content">      
       <form id="form">
         <!-- 头部 -->
@@ -120,31 +120,49 @@
             <!-- 下拉菜单 -->
             <div class="dropdown">
               <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-                <span id="dropdownText">请选择一级分类</span><span class="caret"></span>
+                <span id="dropdownText">请选择二级分类</span><span class="caret"></span>
               </button>
               <ul class="dropdown-menu">
                 <!-- 挖个坑 -->
               </ul>
             </div>
-            <!-- 两个隐藏域,分别用来存储一级分类id和火热品牌 -->
-            <input type="hidden" name="categoryId">
-            <input type="hidden" name="hot" value="1">
+            <!-- 隐藏域,用来存储归属品牌(二级分类id) -->
+            <input type="hidden" name="brandId">
+            <!-- 标记产品上下架,默认上架(1) -->
+            <input type="hidden" name="statu" value="1">
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" name="brandName" id="brandName" placeholder="请输入二级分类">
+            <input type="text" class="form-control" name="proName" placeholder="请输入商品名称">
+          </div>
+          <div class="form-group">
+            <textarea name="proDesc" rows="3" class="form-control" placeholder="请输入商品描述"></textarea>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="num" placeholder="请输入商品库存">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="size" placeholder="请输入商品尺码">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="oldPrice" placeholder="请输入商品原价">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="price" placeholder="请输入商品现价">
           </div>
           <div class="form-group">
             <!-- 文件上传 -->
             <!-- 通过label的for属性和input的id将他们关联起来 -->
             <label for="fileupload" class="btn btn-default">上传图片</label>
             <!-- data-url 指定图片上传时的接口地址        将来给插件去获取的, 去发送ajax的 -->
-            <input type="file" name="pic1" id="fileupload" data-url="/category/addSecondCategoryPic" style="display: none;">
+            <input type="file" name="pic1" id="fileupload" multiple data-url="/product/addProductPic" style="display: none;">
           </div>
           <div class="form-group">
             <div id="imgBox">
-              <img src="./images/none.png" style="height:100px;" alt="">
+              <!-- 图片坑,js填 -->
+
+              <!-- 准备一个隐藏域,专门用于图片校验 -->
+              <input type="hidden" name="picStatus">
             </div>
-            <input type="hidden" name="brandLogo">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
@@ -181,7 +199,7 @@
 <!-- 一级分类模版 -->
 <script type="text/html" id="dropdownTmp">
   {{ each rows v i }}
-    <li><a href="#" data-id="{{ v.id }}">{{ v.categoryName }}</a></li>
+    <li><a href="#" data-id="{{ v.id }}">{{ v.brandName }}</a></li>
   {{ /each }}
 </script>
 <script src="./lib/jquery/jquery.js"></script>

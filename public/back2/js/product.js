@@ -217,6 +217,8 @@ $(function() {
     e.preventDefault();
 
     var params = $('#form').serialize();  // 获取所有 input 中的数据
+    console.log(params);
+    
 
     console.log( picArr );
     // 还要加上图片的数据
