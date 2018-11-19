@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<script>
+
+  /*
+  * 1. cookie  sessionStorage  localStorage 特点和区别
+  *    1.1 cookie 的特点:
+  *        (1) 大小 4k
+  *        (2) 可以在多个页面共享
+  *        (3) 默认是会话级别的, 可以设置生命周期
+  *        (4) cookie中的数据, 会在请求进行携带  (一般用于进行登录状态保持, 里面存储sessionId)
+  *
+  *    1.2 sessionStorage的特点:
+  *        (1) 大小 5M
+  *        (2) 生命周期关闭浏览器, 就销毁
+  *        (3) 多个窗口之间不能共享
+  *
+  *    1.3 localStorage的特点:
+  *        (1) 大小 5M
+  *        (2) 生命周期永久存储, 除非手动删除
+  *        (3) 多个窗口之间可以共享
+  *
+  *        由于 cookie 大小太小, 并且操作麻烦, 所以 html5 中新增了 sessionStorage 和 localStorage
+  *
+  *  2. localStorage的api方法
+  *     localStorage.getItem( key );  // 获取
+  *     localStorage.setItem( key, value ); // 设置
+  *     localStorage.removeItem( key );  // 删除某项
+  *     localStroage.clear();     // 清空所有
+  *
+  *     localStorage 其实只能存储字符串格式的数据
+  *
+  *  3. localStorage 如何对复杂数据类型进行存储 ?
+  *     3.1 存储
+  *         先要将复杂数据类型, 转换成 json字符串 再进行存储
+  *         JSON.stringify( obj/arr );    将 obj/arr  =>  jsonStr
+  *     3.2 获取
+  *         获取的是 json字符串, 需要将 json字符串, 转换成复杂数据类型, 才能使用
+  *         JSON.parse( jsonStr );    将 jsonStr =>  obj/arr
+  *
+  *  小作业: 存储一个对象  { name: "小花花",  age: 18 }  并且将来取出, 读出对象
+  *
+  * */
+
+
+</script>
+
+
+</body>
+</html>
