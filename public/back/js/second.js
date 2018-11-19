@@ -55,6 +55,15 @@ $(function(){
     //获取a 的文本
     var txt = $(this).text();
     $('#dropdownText').text(txt);
+    //获取a的id值,传给隐藏域
+    var id = $(this).data("id");
+    $('[name="categoryId"]').val(id);
+    //因为更改button按钮的值只会改input的value值,不能进行校验
+    //所以要手动触发,input的input事件
+    // $('[name="categoryId"]').trigger('input');
+
+    // 手动将 name="categoryId"的校验状态,改成校验成功
+    $("#form").data('bootstrapValidator').updateStatus('categoryId', 'VALID');
   });
 
   //4.进行上传文件初始化
@@ -70,48 +79,78 @@ $(function(){
       var picUrl = result.picAddr;
       //设置给img的src
       $('#imgBox img').attr("src",picUrl);
+      // 将src路径,实时设置给input
+      $('[name="brandLogo"]').val(picUrl);
+      //将name="brandLogo"的校验状态,改成成功
+      $("#form").data('bootstrapValidator').updateStatus('brandLogo', 'VALID');
     }
   });
 
-
-
-  //4.表单校验
+  //5.表单校验
   $('#form').bootstrapValidator({
     //1. 指定不校验的类型，默认为[':disabled', ':hidden', ':not(:visible)'],可以不设置
-    excluded: [':disabled', ':hidden', ':not(:visible)'],
-
+    //这里需要对隐藏域进行校验
+    excluded: [],
     //2. 指定校验时的图标显示，默认是bootstrap风格
     feedbackIcons: {
       valid: 'glyphicon glyphicon-ok',
       invalid: 'glyphicon glyphicon-remove',
       validating: 'glyphicon glyphicon-refresh'
     },
-
     //3. 指定校验字段
     fields: {
-      //校验用户名，对应name表单的name属性
-      username: {
+      brandName: {
         validators: {
           //不能为空
           notEmpty: {
-            message: '用户名不能为空'
-          },
-          //长度校验
-          stringLength: {
-            min: 6,
-            max: 30,
-            message: '用户名长度必须在6到30之间'
-          },
-          //正则校验
-          regexp: {
-            regexp: /^[a-zA-Z0-9_\.]+$/,
-            message: '用户名由数字字母下划线和.组成'
+            message: '请输入二级分类名称'
           }
         }
       },
+      categoryId: {
+        validators: {
+          //不能为空
+          notEmpty: {
+            message: '请选择一级分类'
+          }
+        }
+      },
+      brandLogo: {
+        validators: {
+          //不能为空
+          notEmpty: {
+            message: '请选择图片'
+          }
+        }
+      }
     }
   });
-  //4.表单校验成功事件
+
+  //6.注册表单校验成功事件,阻止默认的按钮提交,通过ajax请求提交表单
+  $('#form').on('success.form.bv',function(e){
+    e.preventDefault();
+    $.ajax({
+      type:'post',
+      url:'/category/addSecondCategory',
+      // 表单序列化的时候可以多传数据,后台不使用而已
+      data:$('#form').serialize(),
+      dataType:'json',
+      success:function(info){
+        console.log(info);
+        if(info.success) {
+          // 关闭模态框
+          $('#addModal').modal('hide');
+          //重置表单内容和状态
+          $('#form').data('bootstrapValidator').resetForm(true);
+          // 注意:由于上方的下拉框和下面的图片不是表单元素,所以需要手动重置
+          $('#dropdownText').html('请选择一级分类');
+          $('#imgBox img').attr("src","./images/none.png");
+          // 重新渲染页面
+          render();
+        }
+      }
+    });
+  });
 
   
   
