@@ -9,38 +9,34 @@
   <link rel="stylesheet" href="./lib/mui/css/mui.css">
   <link rel="stylesheet" href="./lib/fa/css/font-awesome.css">
   <link rel="stylesheet" href="./css/common.css">
-  <link rel="stylesheet" href="./css/category.css">
+  <link rel="stylesheet" href="./css/searchList.css">
 </head>
 <body>
   <!-- 全屏容器 -->
   <div class="lt_container">
     <!-- 头部 -->
     <div class="lt_header">
-      <a href="index.html" class="icon_left"><i class="fa fa-home"></i></a>
-      <h3>乐淘云购</h3>
-      <a href="search.html" class="icon_right"><i class="fa fa-search"></i></a>
+      <a href="javascript:history.back();" class="icon_left"><i class="mui-icon mui-icon-back"></i></a>
+      <h3>商品列表</h3>
     </div>
     <!-- 内容 -->
     <div class="lt_main">
-      <!-- 左侧区域滚动 -->
-      <div class="lt_category_left">
-        <div class="mui-scroll-wrapper">
-          <div class="mui-scroll">
-            <ul>
-              <!-- 挖个坑 -->
-            </ul>
+      <div class="mui-scroll-wrapper">
+        <div class="mui-scroll">
+          <!-- 搜索框 -->
+          <div class="lt_search">
+            <input type="text" class="search_input" placeholder="请输入搜索关键字">
+            <button class="mui-btn mui-btn-primary search_btn">搜索</button>
           </div>
-        </div>
-      </div>
-      <!-- 右侧区域滚动 -->
-      <div class="lt_category_right">
-        <div class="mui-scroll-wrapper">
-          <div class="mui-scroll">
-            <ul class="mui-clearfix">
-              
-              <!-- 挖个坑 -->
-            </ul>
+          <!-- 乐淘排序 -->
+          <div class="lt_sort mui-clearfix">
+            <a href="#" class="mui-pull-left"><span>上架时间</span><i class="fa fa-angle-down"></i></a>
+            <a href="#" class="mui-pull-left"><span>价格</span><i class="fa fa-angle-down"></i></a>
+            <a href="#" class="mui-pull-left"><span>库存</span><i class="fa fa-angle-down"></i></a>
+            <a href="#" class="mui-pull-left"><span>折扣</span><i class="fa fa-angle-down"></i></a>
           </div>
+          <!-- 乐淘商品区域 -->
+          <div class="lt_product"></div>
         </div>
       </div>
     </div>
@@ -54,7 +50,7 @@
           </a>
         </li>
         <li class="mui-pull-left">
-          <a href="category.html" class="current">
+          <a href="category.html">
             <i class="fa fa-bars"></i>
             <p>分类页</p>
           </a>
@@ -74,31 +70,11 @@
       </ul>
     </div>
   </div>
-  <!-- 左侧模版引擎 -->
-<script type="text/html" id="left_tmp">
-  {{ each rows v i }}
-    <li><a href="#" data-id="{{ v.id }}" class="{{ i === 0?'current':'' }}">{{ v.categoryName }}</a></li>
-  {{ /each }}
-</script>
-  <!-- 右侧模版引擎 -->
-<script type="text/html" id="right_tmp">
-  {{ if rows.length === 0 }}
-    <p class="nomore">没有更多分类信息了</p>
-  {{ else }}
-    {{ each rows v i }}
-      <li class="mui-pull-left">
-        <a href="#">
-          <img src="{{ v.brandLogo }}" alt="">
-          <p>{{ v.brandName }}</p>
-        </a>
-      </li>
-    {{ /each }}
-  {{ /if }}
-</script>
+
 <script src="./lib/zepto/zepto.min.js"></script>
 <script src="./lib/mui/js/mui.js"></script>  
 <script src="./lib/artTemplate/template-web.js"></script>
 <script src="./js/common.js"></script>
-<script src="./js/category.js"></script>
+<script src="./js/searchList.js"></script>
 </body>
 </html>

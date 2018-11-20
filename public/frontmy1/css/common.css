@@ -95,3 +95,22 @@ html,body {
 .lt_footer li a.current p {
   color: orange;
 }
+
+/* 公共搜索框 */
+.lt_search {
+  padding: 10px;
+  position: relative;
+}
+.lt_search .search_input {
+  font-size: 12px;
+  height: 34px;
+  border-radius: 5px;
+  border: 1px solid #479FFF;
+  margin: 0;
+}
+.lt_search .search_btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 0 5px 5px 0;
+}

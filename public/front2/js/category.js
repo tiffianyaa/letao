@@ -14,7 +14,7 @@ $(function() {
       var htmlStr = template("left_tpl", info);
       $('.lt_category_left ul').html( htmlStr );
 
-      // 根据返回回来的第一个 一级分类的 id 进行渲染
+      // ★根据返回回来的第一个 一级分类的 id 进行渲染★
       renderById( info.rows[0].id );
     }
   });

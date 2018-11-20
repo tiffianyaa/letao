@@ -31,7 +31,7 @@ $(function(){
   }
   function render(){
     // 封装一个方法,读取本地历史,通过模版引擎,进行页面渲染
-    var arr = getHistory();
+    var arr = getHistory();    
     $('.lt_history').html(template('searchTmp',{list:arr}));
   }
   
@@ -102,7 +102,7 @@ $(function(){
     if(arr.length >= 10) {
       arr.pop();
     }
-
+    
     arr.unshift(key);
     var jsonStr = JSON.stringify(arr);
     localStorage.setItem('search_list',jsonStr);
