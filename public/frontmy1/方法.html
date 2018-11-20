@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /*
+  * 需求:
+  *   xxxx.html?key=匡威&age=18&desc=帅
+  *   要求将所有地址栏信息提取, 提取成一个对象,
+  *   对象格式 { key: "匡威", age: "18", desc: "帅" };
+  * */
+  var str = location.search;
+  str = decodeURI(str);
+  str = str.slice(1);
+  var arr = str.split("&");
+  var obj = {};
+  arr.forEach(function(v,i){
+    var key = v.split("=")[0];
+    var value = v.split("=")[1];
+    obj[key] = value;
+  });
+  console.log(obj);
+  
+</script>
+</body>
+</html>

@@ -114,3 +114,25 @@ html,body {
   right: 10px;
   border-radius: 0 5px 5px 0;
 }
+
+/* 公共的产品区域 */
+.lt_main .lt_product {
+  padding: 10px;
+}
+.lt_main .lt_product li {
+  width: 48%;
+  border: 1px solid #ccc;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+.lt_main .lt_product li:nth-child(2n-1) {
+  margin-right: 4%;
+}
+.price  {
+  color: #e92322;
+  margin-right: 5px;
+}
+.oldPrice  {
+  text-decoration: line-through;
+}

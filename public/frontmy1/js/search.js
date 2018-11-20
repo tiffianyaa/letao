@@ -59,6 +59,6 @@ $(function(){
     // 清空搜索框
     $('.search_input').val('');
     // 跳转到搜索列表页
-    location.href="searchList.html";
+    location.href="searchList.html?key="+key;
   });
 });
