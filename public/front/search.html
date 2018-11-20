@@ -32,30 +32,7 @@
         </div>
         <!-- 历史记录 -->
         <div class="lt_history">
-          <div class="lt_title">
-            <span class="mui-pull-left">搜索历史</span>
-            <span class="mui-pull-right"><i class="fa fa-trash"></i>清空记录</span>
-          </div>
-          <div class="lt_content">
-            <ul>
-              <li class="mui-clearfix">
-                <a href="#" class="mui-pull-left">sd</a>
-                <i class="mui-pull-right mui-icon mui-icon-closeempty"></i>
-              </li>
-              <li class="mui-clearfix">
-                <a href="#" class="mui-pull-left">sd</a>
-                <i class="mui-pull-right mui-icon mui-icon-closeempty"></i>
-              </li>
-              <li class="mui-clearfix">
-                <a href="#" class="mui-pull-left">sd</a>
-                <i class="mui-pull-right mui-icon mui-icon-closeempty"></i>
-              </li>
-              <li class="mui-clearfix">
-                <a href="#" class="mui-pull-left">sd</a>
-                <i class="mui-pull-right mui-icon mui-icon-closeempty"></i>
-              </li>
-            </ul>
-          </div>
+          <!-- 挖个巨坑 -->
         </div>
       </div>
     </div>
@@ -90,7 +67,32 @@
     </ul>
   </div>
 </div>
+
+<!-- 搜索内容模版引擎 -->
+<script type="text/html" id="searchTmp">
+  {{ if list.length === 0 }}
+      <p>没有更多内容了</p>
+  {{ else }}      
+      <div class="lt_title">
+        <span class="mui-pull-left">搜索历史</span>
+        <span class="mui-pull-right btn_empty"><i class="fa fa-trash"></i>清空记录</span>
+      </div>
+      <div class="lt_content">
+        <ul>
+          {{ each list v i }} 
+            <li>
+              <a href="#" class="mui-pull-left">{{ v }}</a>
+              <i data-index={{ i }} class="mui-pull-right btn-delete mui-icon mui-icon-closeempty"></i>
+            </li>
+          {{ /each }}
+        </ul>
+      </div>    
+  {{ /if }}
+</script>
 <script src="./lib/mui/js/mui.js"></script> 
+<script src="./lib/zepto/zepto.min.js"></script>
+<script src="./lib/artTemplate/template-web.js"></script>
 <script src="./js/common.js"></script> 
+<script src="./js/search.js"></script>
 </body>
 </html>
