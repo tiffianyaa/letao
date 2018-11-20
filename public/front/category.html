@@ -28,26 +28,7 @@
       <div class="mui-scroll-wrapper">
         <div class="mui-scroll">
           <ul>
-            <li><a href="#" class="current">运动馆</a></li>
-            <li><a href="#">运动馆</a></li>
-            <li><a href="#">运动馆</a></li>
-            <li><a href="#">运动馆</a></li>
-            <li><a href="#">运动馆</a></li>
-            <li><a href="#">运动馆</a></li>
-            <li><a href="#">运动馆</a></li>
-            <li><a href="#">运动馆</a></li>
-            <li><a href="#">运动馆</a></li>
-            <li><a href="#">运动馆</a></li>
-            <li><a href="#">运动馆</a></li>
-            <li><a href="#">运动馆</a></li>
-            <li><a href="#">运动馆</a></li>
-            <li><a href="#">运动馆</a></li>
-            <li><a href="#">运动馆</a></li>
-            <li><a href="#">运动馆</a></li>
-            <li><a href="#">运动馆</a></li>
-            <li><a href="#">运动馆</a></li>
-            <li><a href="#">运动馆</a></li>
-            <li><a href="#">运动馆</a></li>
+            <!-- 挖个坑 -->
           </ul>
         </div>
       </div>
@@ -57,24 +38,7 @@
       <div class="mui-scroll-wrapper">
         <div class="mui-scroll">
           <ul class="mui-clearfix">
-            <li class="mui-pull-left">
-              <a href="#">
-                <img src="./images/brand1.png" alt="">
-                <p>耐克</p>
-              </a>
-            </li>
-            <li class="mui-pull-left">
-              <a href="#">
-                <img src="./images/brand1.png" alt="">
-                <p>耐克</p>
-              </a>
-            </li>
-            <li class="mui-pull-left">
-              <a href="#">
-                <img src="./images/brand1.png" alt="">
-                <p>耐克</p>
-              </a>
-            </li>
+            <!-- 挖个坑 -->
           </ul>
         </div>
       </div>
@@ -110,7 +74,33 @@
     </ul>
   </div>
 </div>
+<!-- 左侧模版引擎 -->
+<script type="text/html" id="left_tmp">
+  {{ each rows v i }}
+    <li><a data-id="{{ v.id }}" href="#" class="{{ i===0 ? 'current' : '' }}">{{ v.categoryName }}</a></li>
+  {{ /each }}
+</script>
+
+<!-- 右侧模版引擎 -->
+<script type="text/html" id="right_tmp">
+  {{ if rows.length === 0 }}
+    <p class="nomore">没有更多分类信息了</p>
+  {{ else }}
+    {{ each rows v i }}
+      <li class="mui-pull-left">
+        <a href="#">
+          <img src="{{ v.brandLogo }}" alt="">
+          <p>{{ v.brandName }}</p>
+        </a>
+      </li>
+    {{ /each }}
+  {{ /if }}
+  
+</script>
 <script src="./lib/mui/js/mui.js"></script> 
+<script src="./lib/zepto/zepto.min.js"></script>
+<script src="./lib/artTemplate/template-web.js"></script>
 <script src="./js/common.js"></script> 
+<script src="./js/category.js"></script> 
 </body>
 </html>
