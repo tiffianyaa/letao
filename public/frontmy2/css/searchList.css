@@ -1,0 +1,12 @@
+.lt_sort a {
+  width: 25%;
+  background-color: #EEEEEE;
+  font-size: 12px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #666;
+}
+.lt_sort a span {
+  margin-right: 3px;
+}
