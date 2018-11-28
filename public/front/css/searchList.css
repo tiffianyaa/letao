@@ -40,3 +40,7 @@ p.mui-ellipsis-2 {
     transform: translateX(-50%) rotate(360deg);
   }
 }
+
+.lt_product li a {
+  display: block;
+}
